@@ -30,15 +30,15 @@ I created a function called as get_hog_features which takes a normal image and t
 
 For example : I used YUV color space with the following HOG parameters: orientations=8, pixels_per_cell=(8, 8) and cells_per_block=(2, 2).
 
+![][image1]
+
 ### 2. Explain how you settled on your final choice of HOG parameters.
-I tried different permutations and combinations of parameters but the best accuracy(SVM Training) was found with the ones that I chose to begin with and here are those parameters:(orientations=8, pixels_per_cell=(8, 8), cells_per_block=(2, 2) and YUV colorspace.)
-
-
+I tried different permutations and combinations of parameters but the best accuracy(SVM Training) was found with the ones that I chose to begin with and here are those parameters:(orientations=8, pixels_per_cell=(8, 8), cells_per_block=(2, 2) and YUV colorspace.) Below is an example of HOG features after normalization:
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 I normalized both color and HOG features beforehand as a preparatory step for the classification. An example of that is shown below:
 
-
+![][image4]
 
 I then used the previously normalized features to train on a linear SVM classifier(Udacity model) and the accuracy came out to be more than 98% so it looked like a good choice of model to me.
 
@@ -58,7 +58,10 @@ Then I tried playing with different scales for my window size to optimize for th
 ### 2. Show some examples of test images to demonstrate how your pipeline is working. What did you do to optimize the performance of your classifier?
 
 In my pipeline I used the optimized scale values ([1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 3]) for searching. Plus I used YUV 3 channel HOG features, color histograms and spatially binned color to get a good result.
-Finally to get rid of false positives and multiple detections, I utilized heat map and then drew a rectangle of appropriate size in that region. Below is an example of the end result without using the heatmap which also contains too many detections for the same car.
+Finally to get rid of false positives and multiple detections, I utilized heat map and then drew a rectangle of appropriate size in that region. Below is an example of the end result without using the heatmap which also contains too many detections for the same car. And then post processing the pipeline how we get just one box for one car.
+
+![][image2]
+![][image5]
 
 ## Video Implementation
 
@@ -70,6 +73,7 @@ I used different functions in a combination to finally implement a heatmap which
 
 An example of heatmap is shown below:
 
+![][image3]
 
 I also utilized class to keep track of bounding boxes or detections in the previous frames(last 5 frames) and then clubbing all these boxes to draw a heatmap would allow me to set a higher threshold limit which would reduce the false positives even further.
 
