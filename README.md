@@ -3,11 +3,11 @@
 
 [//]: # (Image References)
 
-[image1]: ./carUndistort.png "Undistorted"
-[image2]: ./chessboard.png "Undistorted"
-[image3]: ./laneBinary.png "Binary"
-[image4]: ./result.png "Result"
-[image5]: ./birdsEye.png "Top Down View"
+[image1]: ./hogImage.png "HOG"
+[image2]: ./findcarsResult.png "find_cars result"
+[image3]: ./heatmapResult.png "heat map result"
+[image4]: ./normalization.png "normalized images"
+[image5]: ./endResult.png "end result"
 
 ## Goals of the project
 The goals / steps of this project are the following:
